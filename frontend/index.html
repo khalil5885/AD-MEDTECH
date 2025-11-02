@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Library Admin</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Book Library Admin</h1>
+      <p>Interact with the REST API to manage books.</p>
+      <button id="refresh-btn" type="button">Refresh books</button>
+      <span id="global-status" role="status" aria-live="polite"></span>
+    </header>
+
+    <main>
+      <section aria-labelledby="books-heading">
+        <h2 id="books-heading">All books</h2>
+        <p>The table below shows the current collection returned by <code>GET /books</code>.</p>
+        <div class="table-wrapper">
+          <table id="books-table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Year</th>
+                <th scope="col">Read?</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section aria-labelledby="single-book-heading">
+        <h2 id="single-book-heading">Lookup a book</h2>
+        <form id="lookup-form">
+          <label>
+            Book ID
+            <input type="number" name="id" min="1" required />
+          </label>
+          <button type="submit">Get book</button>
+        </form>
+        <pre id="lookup-result" aria-live="polite"></pre>
+      </section>
+
+      <section aria-labelledby="add-book-heading">
+        <h2 id="add-book-heading">Add a book</h2>
+        <form id="add-form">
+          <label>
+            Title
+            <input type="text" name="title" required />
+          </label>
+          <label>
+            Author
+            <input type="text" name="author" required />
+          </label>
+          <label>
+            Publication year
+            <input type="number" name="year" min="0" required />
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" name="isRead" />
+            Mark as read
+          </label>
+          <button type="submit">Add book</button>
+        </form>
+      </section>
+
+      <section aria-labelledby="update-book-heading">
+        <h2 id="update-book-heading">Update or mark as read</h2>
+        <form id="update-form">
+          <label>
+            Book ID
+            <input type="number" name="id" min="1" required />
+          </label>
+          <label>
+            Title
+            <input type="text" name="title" placeholder="Leave blank to keep current" />
+          </label>
+          <label>
+            Author
+            <input type="text" name="author" placeholder="Leave blank to keep current" />
+          </label>
+          <label>
+            Publication year
+            <input type="number" name="year" min="0" placeholder="Leave blank to keep current" />
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" name="isRead" />
+            Mark as read
+          </label>
+          <button type="submit">Update book</button>
+        </form>
+      </section>
+
+      <section aria-labelledby="delete-book-heading">
+        <h2 id="delete-book-heading">Delete a book</h2>
+        <form id="delete-form">
+          <label>
+            Book ID
+            <input type="number" name="id" min="1" required />
+          </label>
+          <button type="submit" class="danger">Delete book</button>
+        </form>
+      </section>
+    </main>
+
+    <template id="book-row-template">
+      <tr>
+        <td class="book-id"></td>
+        <td class="book-title"></td>
+        <td class="book-author"></td>
+        <td class="book-year"></td>
+        <td class="book-read"></td>
+      </tr>
+    </template>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

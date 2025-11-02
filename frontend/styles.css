@@ -1,0 +1,175 @@
+:root {
+  color-scheme: light dark;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f6f8fa;
+  color: #222;
+}
+
+body {
+  margin: 0 auto;
+  padding: 2rem;
+  max-width: 960px;
+  line-height: 1.6;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #d0d7de;
+}
+
+h1,
+ h2 {
+  margin: 0;
+  color: #0f172a;
+}
+
+section {
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  border: 1px solid #d0d7de;
+  border-radius: 0.75rem;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: end;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+input[type="text"],
+input[type="number"] {
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  border: 1px solid #cbd5f5;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 999px;
+  background-color: #2563eb;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover,
+button:focus {
+  background-color: #1d4ed8;
+}
+
+button.danger {
+  background-color: #dc2626;
+}
+
+button.danger:hover,
+button.danger:focus {
+  background-color: #b91c1c;
+}
+
+.checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.checkbox input {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+#books-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#books-table th,
+#books-table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+#books-table tbody tr:nth-child(even) {
+  background-color: rgba(37, 99, 235, 0.06);
+}
+
+#books-table td.book-read {
+  font-weight: 600;
+}
+
+#lookup-result {
+  background-color: #0f172a;
+  color: #f8fafc;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  min-height: 4.5rem;
+  white-space: pre-wrap;
+}
+
+#global-status {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    background-color: #0f172a;
+    color: #f8fafc;
+  }
+
+  section {
+    background-color: #111827;
+    border-color: #1f2937;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  }
+
+  header {
+    border-bottom-color: #1f2937;
+  }
+
+  label,
+  h1,
+  h2 {
+    color: #f8fafc;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    background-color: #0f172a;
+    color: #f8fafc;
+    border-color: #1f2937;
+  }
+
+  #books-table th,
+  #books-table td {
+    border-bottom-color: #1f2937;
+  }
+
+  #books-table tbody tr:nth-child(even) {
+    background-color: rgba(37, 99, 235, 0.2);
+  }
+}
