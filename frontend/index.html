@@ -1,122 +1,310 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book Library Admin</title>
+    <title>Réseau Volkswagen Tunisie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-      <h1>Book Library Admin</h1>
-      <p>Interact with the REST API to manage books.</p>
-      <button id="refresh-btn" type="button">Refresh books</button>
-      <span id="global-status" role="status" aria-live="polite"></span>
+    <header class="site-header" data-header>
+      <div class="site-header__brand" data-header-strip>
+        <div class="site-header__brand-inner">
+          <a class="brand" href="#top" aria-label="Volkswagen Tunisie">
+            <span class="brand__logo" aria-hidden="true">VW</span>
+            <span class="brand__text">Volkswagen Tunisie</span>
+          </a>
+          <div class="site-header__brand-meta">
+            <span class="meta-pill">Réseau Officiel</span>
+            <span class="meta-pill meta-pill--accent">Support 24/7</span>
+          </div>
+        </div>
+      </div>
+      <div class="site-header__toolbar">
+        <div class="site-header__toolbar-inner">
+          <nav class="site-nav" aria-label="Navigation principale">
+            <a href="#tableau">Tableau de bord</a>
+            <a href="#reseau">Réseau</a>
+            <a href="#services">Services</a>
+            <a href="#support">Support</a>
+          </nav>
+          <div class="toolbar__actions">
+            <button class="button button--ghost" type="button">Créer un rapport</button>
+            <button class="button button--primary" type="button">Planifier un essai</button>
+          </div>
+        </div>
+      </div>
     </header>
 
-    <main>
-      <section aria-labelledby="books-heading">
-        <h2 id="books-heading">All books</h2>
-        <p>The table below shows the current collection returned by <code>GET /books</code>.</p>
-        <div class="table-wrapper">
-          <table id="books-table">
-            <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Title</th>
-                <th scope="col">Author</th>
-                <th scope="col">Year</th>
-                <th scope="col">Read?</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
+    <main id="top" class="dashboard">
+      <section class="dashboard-hero" id="tableau">
+        <div class="dashboard-hero__intro">
+          <p class="eyebrow">Pilotage réseau</p>
+          <h1>Tableau de bord Volkswagen Tunisie</h1>
+          <p class="lead">
+            Surveillez les performances du réseau, les demandes clients et les capacités des concessions en temps réel. Utilisez les filtres pour obtenir une vue ciblée et anticiper vos actions.
+          </p>
+          <div class="dashboard-hero__actions">
+            <a class="button button--primary" href="#locator">Analyser une zone</a>
+            <a class="button button--ghost" href="#support">Assistance</a>
+          </div>
+        </div>
+        <div class="dashboard-hero__metrics" aria-label="Résumé des indicateurs clés">
+          <article class="metric-card">
+            <p class="metric-card__label">Satisfaction globale</p>
+            <p class="metric-card__value">4,8<span>/5</span></p>
+            <p class="metric-card__trend metric-card__trend--up">+0,2 vs. mois dernier</p>
+          </article>
+          <article class="metric-card">
+            <p class="metric-card__label">Commandes en cours</p>
+            <p class="metric-card__value">128</p>
+            <p class="metric-card__trend">32 livraisons prévues cette semaine</p>
+          </article>
+          <article class="metric-card metric-card--accent">
+            <p class="metric-card__label">Demandes d'essai</p>
+            <p class="metric-card__value">56</p>
+            <p class="metric-card__trend">8 en attente de confirmation</p>
+          </article>
+          <article class="metric-card">
+            <p class="metric-card__label">Capacité ateliers</p>
+            <p class="metric-card__value">87%</p>
+            <p class="metric-card__trend metric-card__trend--down">-5% vs. objectif</p>
+          </article>
         </div>
       </section>
 
-      <section aria-labelledby="single-book-heading">
-        <h2 id="single-book-heading">Lookup a book</h2>
-        <form id="lookup-form">
-          <label>
-            Book ID
-            <input type="number" name="id" min="1" required />
-          </label>
-          <button type="submit">Get book</button>
-        </form>
-        <pre id="lookup-result" aria-live="polite"></pre>
+      <section class="dashboard-grid" id="reseau">
+        <article class="panel panel--wide">
+          <header class="panel__header">
+            <h2>Vue dynamique du réseau</h2>
+            <div class="panel__filters">
+              <button class="chip chip--active" type="button">National</button>
+              <button class="chip" type="button">Nord</button>
+              <button class="chip" type="button">Centre</button>
+              <button class="chip" type="button">Sud</button>
+            </div>
+          </header>
+          <div class="panel__body panel__body--map">
+            <div class="map-grid">
+              <div class="map-grid__cell">
+                <p class="map-grid__label">Tunis</p>
+                <span class="map-grid__value">34 dossiers</span>
+              </div>
+              <div class="map-grid__cell">
+                <p class="map-grid__label">Sousse</p>
+                <span class="map-grid__value">18 dossiers</span>
+              </div>
+              <div class="map-grid__cell">
+                <p class="map-grid__label">Sfax</p>
+                <span class="map-grid__value">22 dossiers</span>
+              </div>
+              <div class="map-grid__cell">
+                <p class="map-grid__label">Bizerte</p>
+                <span class="map-grid__value">9 dossiers</span>
+              </div>
+              <div class="map-grid__cell">
+                <p class="map-grid__label">Gabès</p>
+                <span class="map-grid__value">11 dossiers</span>
+              </div>
+              <div class="map-grid__cell">
+                <p class="map-grid__label">Monastir</p>
+                <span class="map-grid__value">7 dossiers</span>
+              </div>
+            </div>
+            <div class="panel__aside">
+              <p class="panel__aside-title">Alertes en temps réel</p>
+              <ul class="panel__list">
+                <li><span class="dot dot--warning"></span>Capacité atelier à Sfax proche du seuil.</li>
+                <li><span class="dot dot--success"></span>Livraisons Tunis respectent le planning.</li>
+                <li><span class="dot dot--info"></span>Nouvelle demande flottes entreprises à Gabès.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <header class="panel__header">
+            <h2>Suivi des demandes clients</h2>
+            <span class="panel__tag">Mise à jour 5 min</span>
+          </header>
+          <ul class="timeline">
+            <li>
+              <span class="timeline__time">08:42</span>
+              <div>
+                <p class="timeline__title">Essai T-Roc confirmé</p>
+                <p class="timeline__meta">Agence La Marsa · 12 octobre</p>
+              </div>
+            </li>
+            <li>
+              <span class="timeline__time">09:15</span>
+              <div>
+                <p class="timeline__title">Demande devis ID.4</p>
+                <p class="timeline__meta">Concession Sousse</p>
+              </div>
+            </li>
+            <li>
+              <span class="timeline__time">10:03</span>
+              <div>
+                <p class="timeline__title">Livraison Golf terminée</p>
+                <p class="timeline__meta">Tunis Centre</p>
+              </div>
+            </li>
+            <li>
+              <span class="timeline__time">10:27</span>
+              <div>
+                <p class="timeline__title">Support après-vente</p>
+                <p class="timeline__meta">Pièces demandées à Bizerte</p>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <header class="panel__header">
+            <h2>Performance ateliers</h2>
+            <span class="panel__tag panel__tag--accent">Semaine 42</span>
+          </header>
+          <div class="progress-list">
+            <div class="progress-item">
+              <p>Tunis</p>
+              <div class="progress-bar" aria-hidden="true">
+                <span style="width: 92%"></span>
+              </div>
+              <span class="progress-value">92%</span>
+            </div>
+            <div class="progress-item">
+              <p>Sousse</p>
+              <div class="progress-bar" aria-hidden="true">
+                <span style="width: 84%"></span>
+              </div>
+              <span class="progress-value">84%</span>
+            </div>
+            <div class="progress-item">
+              <p>Sfax</p>
+              <div class="progress-bar" aria-hidden="true">
+                <span style="width: 73%"></span>
+              </div>
+              <span class="progress-value">73%</span>
+            </div>
+            <div class="progress-item">
+              <p>Gabès</p>
+              <div class="progress-bar" aria-hidden="true">
+                <span style="width: 68%"></span>
+              </div>
+              <span class="progress-value">68%</span>
+            </div>
+          </div>
+        </article>
       </section>
 
-      <section aria-labelledby="add-book-heading">
-        <h2 id="add-book-heading">Add a book</h2>
-        <form id="add-form">
-          <label>
-            Title
-            <input type="text" name="title" required />
+      <section class="locator" id="locator" aria-labelledby="locator-heading">
+        <div class="section-header">
+          <p class="section-eyebrow">Localisateur</p>
+          <h2 id="locator-heading">Trouver une concession Volkswagen</h2>
+          <p>
+            Recherchez par ville, code postal ou type de service pour découvrir les concessions disponibles dans votre région.
+          </p>
+        </div>
+        <form class="locator__form" id="locator-form">
+          <label class="field">
+            <span>Code postal ou ville</span>
+            <input
+              type="search"
+              name="query"
+              id="locator-query"
+              placeholder="Entrez votre adresse complète ou partielle"
+              autocomplete="postal-code"
+            />
           </label>
-          <label>
-            Author
-            <input type="text" name="author" required />
+          <label class="field">
+            <span>Service recherché</span>
+            <select name="service" id="locator-service">
+              <option value="">Tous les services</option>
+              <option value="sales">Vente &amp; livraison</option>
+              <option value="after-sales">Après-vente &amp; entretien</option>
+              <option value="parts">Pièces &amp; accessoires</option>
+            </select>
           </label>
-          <label>
-            Publication year
-            <input type="number" name="year" min="0" required />
-          </label>
-          <label class="checkbox">
-            <input type="checkbox" name="isRead" />
-            Mark as read
-          </label>
-          <button type="submit">Add book</button>
+          <button class="button button--primary" type="submit">Rechercher</button>
         </form>
+        <div class="locator__results" id="dealer-results" role="status" aria-live="polite">
+          <p class="locator__placeholder">Chargement des concessions recommandées…</p>
+        </div>
       </section>
 
-      <section aria-labelledby="update-book-heading">
-        <h2 id="update-book-heading">Update or mark as read</h2>
-        <form id="update-form">
-          <label>
-            Book ID
-            <input type="number" name="id" min="1" required />
-          </label>
-          <label>
-            Title
-            <input type="text" name="title" placeholder="Leave blank to keep current" />
-          </label>
-          <label>
-            Author
-            <input type="text" name="author" placeholder="Leave blank to keep current" />
-          </label>
-          <label>
-            Publication year
-            <input type="number" name="year" min="0" placeholder="Leave blank to keep current" />
-          </label>
-          <label class="checkbox">
-            <input type="checkbox" name="isRead" />
-            Mark as read
-          </label>
-          <button type="submit">Update book</button>
-        </form>
+      <section class="services" id="services" aria-labelledby="services-heading">
+        <div class="section-header">
+          <p class="section-eyebrow">Nos engagements</p>
+          <h2 id="services-heading">Des solutions pensées pour votre mobilité</h2>
+          <p>
+            Que vous soyez particulier ou professionnel, nos experts vous accompagnent de la commande à l'entretien de votre véhicule.
+          </p>
+        </div>
+        <div class="services__grid">
+          <article class="service-card">
+            <h3>Conseils personnalisés</h3>
+            <p>
+              Nos conseillers vous aident à choisir le modèle et les options adaptés à votre quotidien et à votre budget.
+            </p>
+          </article>
+          <article class="service-card">
+            <h3>Financement flexible</h3>
+            <p>
+              Location avec option d'achat, crédit classique ou solutions professionnelles, choisissez la formule qui vous convient.
+            </p>
+          </article>
+          <article class="service-card">
+            <h3>Entretien certifié</h3>
+            <p>
+              Bénéficiez de l'expertise des techniciens Volkswagen et de pièces d'origine garanties.
+            </p>
+          </article>
+          <article class="service-card">
+            <h3>Connectivité &amp; digital</h3>
+            <p>
+              Suivez votre véhicule, prenez rendez-vous et accédez à l'historique de vos interventions depuis votre espace client.
+            </p>
+          </article>
+        </div>
       </section>
 
-      <section aria-labelledby="delete-book-heading">
-        <h2 id="delete-book-heading">Delete a book</h2>
-        <form id="delete-form">
-          <label>
-            Book ID
-            <input type="number" name="id" min="1" required />
-          </label>
-          <button type="submit" class="danger">Delete book</button>
-        </form>
+      <section class="support" id="support" aria-labelledby="support-heading">
+        <div class="support__content">
+          <div>
+            <p class="section-eyebrow">Support &amp; assistance</p>
+            <h2 id="support-heading">Nous sommes là pour vous accompagner</h2>
+            <p>
+              Bénéficiez d'une équipe dédiée pour gérer vos demandes en ligne, coordonner les rendez-vous atelier et assurer un suivi proactif.
+            </p>
+            <ul class="support__list">
+              <li>Chat en direct avec nos conseillers experts</li>
+              <li>Suivi des dossiers clients et notifications automatiques</li>
+              <li>Portail digital pour la gestion de flotte</li>
+            </ul>
+          </div>
+          <div class="support__card">
+            <h3>Centre d'appel Tunisie</h3>
+            <p>Disponible du lundi au samedi de 8h à 20h.</p>
+            <a class="button button--secondary" href="tel:+21670123456">+216 70 123 456</a>
+          </div>
+        </div>
       </section>
     </main>
 
-    <template id="book-row-template">
-      <tr>
-        <td class="book-id"></td>
-        <td class="book-title"></td>
-        <td class="book-author"></td>
-        <td class="book-year"></td>
-        <td class="book-read"></td>
-      </tr>
-    </template>
+    <footer class="site-footer">
+      <p>&copy; 2024 Volkswagen Tunisie. Tous droits réservés.</p>
+      <nav aria-label="Liens secondaires">
+        <a href="#">Mentions légales</a>
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">Cookies</a>
+      </nav>
+    </footer>
 
     <script src="app.js" type="module"></script>
   </body>
