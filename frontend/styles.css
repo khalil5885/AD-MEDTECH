@@ -1,15 +1,15 @@
 :root {
-  --brand-navy: #002c5f;
-  --brand-blue: #005ab4;
-  --brand-red: #e60012;
-  --brand-silver: #f2f4f7;
-  --text-primary: #0b1f33;
-  --text-secondary: #4c5d70;
+  --brand-navy: #1f2937;
+  --brand-blue: #4f46e5;
+  --brand-red: #f97316;
+  --brand-silver: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
   --surface: rgba(255, 255, 255, 0.9);
   --surface-strong: #ffffff;
-  --border-color: rgba(11, 31, 51, 0.1);
-  --shadow-soft: 0 18px 35px rgba(0, 44, 95, 0.12);
-  --shadow-elevated: 0 25px 50px rgba(0, 44, 95, 0.18);
+  --border-color: rgba(15, 23, 42, 0.12);
+  --shadow-soft: 0 18px 35px rgba(79, 70, 229, 0.14);
+  --shadow-elevated: 0 25px 50px rgba(79, 70, 229, 0.18);
   font-family: 'Source Sans 3', 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
@@ -20,8 +20,8 @@
 body {
   margin: 0;
   color: var(--text-primary);
-  background: radial-gradient(circle at top right, rgba(0, 90, 180, 0.18), transparent 45%),
-    radial-gradient(circle at bottom left, rgba(0, 44, 95, 0.18), transparent 50%), #f7f9fc;
+  background: radial-gradient(circle at top right, rgba(79, 70, 229, 0.18), transparent 45%),
+    radial-gradient(circle at bottom left, rgba(15, 23, 42, 0.14), transparent 50%), #f8fafc;
   min-height: 100vh;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
@@ -59,38 +59,38 @@ img {
 .button--primary {
   background: var(--brand-blue);
   color: #fff;
-  box-shadow: 0 10px 20px rgba(0, 90, 180, 0.25);
+  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.28);
 }
 
 .button--primary:hover,
 .button--primary:focus {
-  background: #004891;
+  background: #4338ca;
   transform: translateY(-1px);
-  box-shadow: 0 15px 30px rgba(0, 90, 180, 0.3);
+  box-shadow: 0 18px 32px rgba(79, 70, 229, 0.32);
 }
 
 .button--secondary {
   background: #fff;
   color: var(--brand-blue);
-  border-color: rgba(0, 90, 180, 0.2);
-  box-shadow: inset 0 0 0 1px rgba(0, 90, 180, 0.1);
+  border-color: rgba(79, 70, 229, 0.24);
+  box-shadow: inset 0 0 0 1px rgba(79, 70, 229, 0.12);
 }
 
 .button--secondary:hover,
 .button--secondary:focus {
-  border-color: rgba(0, 90, 180, 0.35);
+  border-color: rgba(79, 70, 229, 0.4);
   transform: translateY(-1px);
 }
 
 .button--ghost {
   background: transparent;
   color: var(--brand-blue);
-  border-color: rgba(0, 90, 180, 0.25);
+  border-color: rgba(79, 70, 229, 0.25);
 }
 
 .button--ghost:hover,
 .button--ghost:focus {
-  background: rgba(0, 90, 180, 0.08);
+  background: rgba(79, 70, 229, 0.1);
 }
 
 .site-header {
@@ -170,14 +170,14 @@ img {
 }
 
 .meta-pill--accent {
-  background: rgba(230, 0, 18, 0.1);
+  background: rgba(249, 115, 22, 0.14);
   color: var(--brand-red);
 }
 
 .site-header__toolbar {
-  background: linear-gradient(90deg, rgba(0, 44, 95, 0.95), rgba(0, 90, 180, 0.95));
-  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+  background: linear-gradient(100deg, rgba(15, 23, 42, 0.95), rgba(79, 70, 229, 0.92));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.06);
   display: flex;
   justify-content: center;
 }
@@ -314,8 +314,8 @@ img {
 }
 
 .metric-card--accent {
-  background: linear-gradient(135deg, rgba(0, 90, 180, 0.12), rgba(0, 44, 95, 0.35));
-  color: #fff;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.2), rgba(15, 23, 42, 0.85));
+  color: #f8fafc;
 }
 
 .metric-card__label {
@@ -401,8 +401,8 @@ img {
 .chip {
   padding: 0.4rem 0.9rem;
   border-radius: 999px;
-  border: 1px solid rgba(0, 44, 95, 0.2);
-  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(79, 70, 229, 0.2);
+  background: rgba(255, 255, 255, 0.82);
   font-weight: 600;
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -414,7 +414,7 @@ img {
 
 .chip:hover,
 .chip:focus {
-  border-color: rgba(0, 90, 180, 0.5);
+  border-color: rgba(79, 70, 229, 0.45);
 }
 
 .chip--active {
@@ -429,50 +429,56 @@ img {
   gap: 1.5rem;
 }
 
-.panel__body--map {
+.panel__body--insights {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   align-items: stretch;
 }
 
-.map-grid {
+.insights-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 1rem;
   background: var(--brand-silver);
   border-radius: 18px;
   padding: 1.5rem;
 }
 
-.map-grid__cell {
+.insights-grid__cell {
   background: #fff;
-  border-radius: 14px;
-  padding: 1rem;
-  box-shadow: 0 10px 24px rgba(0, 44, 95, 0.12);
+  border-radius: 16px;
+  padding: 1.1rem;
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.12);
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.5rem;
 }
 
-.map-grid__label {
+.insights-grid__label {
   margin: 0;
   font-weight: 600;
   color: var(--brand-navy);
 }
 
-.map-grid__value {
-  font-size: 0.9rem;
+.insights-grid__value {
+  font-size: 0.95rem;
+  color: var(--brand-blue);
+  font-weight: 600;
+}
+
+.insights-grid__meta {
+  font-size: 0.85rem;
   color: var(--text-secondary);
 }
 
 .panel__aside {
-  background: rgba(0, 44, 95, 0.85);
+  background: linear-gradient(160deg, rgba(15, 23, 42, 0.94), rgba(79, 70, 229, 0.85));
   border-radius: 18px;
   padding: 1.5rem;
-  color: #fff;
+  color: #f8fafc;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .panel__aside-title {
@@ -501,15 +507,15 @@ img {
 }
 
 .dot--warning {
-  background: #ffb703;
+  background: #f59e0b;
 }
 
 .dot--success {
-  background: #34a853;
+  background: #34d399;
 }
 
 .dot--info {
-  background: #5b8def;
+  background: #60a5fa;
 }
 
 .panel__tag {
@@ -519,12 +525,12 @@ img {
   letter-spacing: 0.05em;
   padding: 0.3rem 0.7rem;
   border-radius: 999px;
-  background: rgba(0, 44, 95, 0.1);
+  background: rgba(79, 70, 229, 0.12);
   color: var(--brand-navy);
 }
 
 .panel__tag--accent {
-  background: rgba(230, 0, 18, 0.12);
+  background: rgba(249, 115, 22, 0.15);
   color: var(--brand-red);
 }
 
@@ -676,27 +682,40 @@ img {
   color: var(--text-secondary);
 }
 
-.dealer-card {
+.product-card {
   border-radius: 20px;
   padding: 1.5rem;
-  background: linear-gradient(135deg, rgba(0, 44, 95, 0.05), rgba(0, 90, 180, 0.08));
-  box-shadow: inset 0 0 0 1px rgba(0, 44, 95, 0.1), 0 12px 24px rgba(0, 44, 95, 0.08);
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.06), rgba(15, 23, 42, 0.08));
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.08), 0 14px 30px rgba(15, 23, 42, 0.12);
   display: grid;
   gap: 1rem;
 }
 
-.dealer-card__title {
+.product-card__title {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   font-size: 1.15rem;
 }
 
-.dealer-card__address {
-  margin: 0.5rem 0 0;
+.product-card__price {
+  margin: 0;
+  font-weight: 600;
+  color: var(--brand-blue);
+}
+
+.product-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.product-card__description {
+  margin: 0;
   color: var(--text-secondary);
 }
 
-.dealer-card__services {
+.product-card__highlights {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -705,16 +724,16 @@ img {
   gap: 0.5rem;
 }
 
-.dealer-card__services li {
+.product-card__highlights li {
   padding: 0.35rem 0.75rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.78);
   font-size: 0.8rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
-.dealer-card__cta {
+.product-card__cta {
   display: flex;
   justify-content: flex-start;
 }
@@ -756,8 +775,8 @@ img {
 .support__card {
   padding: 1.75rem;
   border-radius: 20px;
-  background: linear-gradient(135deg, rgba(0, 90, 180, 0.08), rgba(0, 44, 95, 0.5));
-  color: #fff;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.12), rgba(15, 23, 42, 0.82));
+  color: #f8fafc;
   display: grid;
   gap: 0.75rem;
   box-shadow: var(--shadow-soft);
@@ -800,7 +819,7 @@ img {
     padding-top: 3rem;
   }
 
-  .panel__body--map {
+  .panel__body--insights {
     grid-template-columns: 1fr;
   }
 
