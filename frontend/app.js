@@ -1,70 +1,89 @@
-const dealers = [
+const products = [
   {
     id: 1,
-    name: 'Volkswagen Tunis Centre',
-    address: 'Avenue de la République, Centre Urbain Nord',
-    city: 'Tunis',
-    postalCode: '1003',
-    phone: '+216 70 123 456',
-    services: ['sales', 'after-sales', 'parts'],
+    name: 'Atlas Dual Monitor Arm',
+    description:
+      "Bras double en aluminium anodisé avec ajustement à une main et gestion magnétique des câbles.",
+    price: '329 DT',
+    category: 'ergonomie',
+    highlights: ['Rotation 360°', 'Jusqu\'à 2 x 9 kg', 'Finition noir mat'],
   },
   {
     id: 2,
-    name: 'Volkswagen La Marsa',
-    address: 'Rue du Lac Léman, Les Berges du Lac 1',
-    city: 'La Marsa',
-    postalCode: '2078',
-    phone: '+216 71 654 321',
-    services: ['sales', 'after-sales'],
+    name: 'Halo Balance Lamp',
+    description:
+      'Lampe connectée spectre complet avec capteur de luminosité et recharge sans fil intégrée.',
+    price: '249 DT',
+    category: 'luminaire',
+    highlights: ['Mode focus', 'USB-C 30W', 'Température ajustable'],
   },
   {
     id: 3,
-    name: 'Volkswagen Sousse',
-    address: 'Route de la Ceinture, Zone Industrielle Sidi Abdelhamid',
-    city: 'Sousse',
-    postalCode: '4003',
-    phone: '+216 73 456 789',
-    services: ['sales', 'after-sales', 'parts'],
+    name: 'Studio Acoustic Panel Set',
+    description:
+      'Panneaux modulaires en feutre recyclé pour absorber le bruit et structurer les espaces ouverts.',
+    price: '189 DT',
+    category: 'organisation',
+    highlights: ['Installation magnétique', 'Feutre recyclé', '3 formats inclus'],
   },
   {
     id: 4,
-    name: 'Volkswagen Sfax',
-    address: 'Km 5, Route de Gabès',
-    city: 'Sfax',
-    postalCode: '3018',
-    phone: '+216 74 222 444',
-    services: ['after-sales', 'parts'],
+    name: 'Flow Wireless Hub',
+    description:
+      'Station USB-C 9 ports avec alimentation 100W, HDMI 4K et charge rapide multi-appareils.',
+    price: '279 DT',
+    category: 'tech',
+    highlights: ['HDMI 4K 60Hz', 'Power Delivery 100W', 'Ethernet Gigabit'],
   },
   {
     id: 5,
-    name: 'Volkswagen Bizerte',
-    address: 'Zone Portuaire de Bizerte, Avenue Habib Bourguiba',
-    city: 'Bizerte',
-    postalCode: '7000',
-    phone: '+216 72 505 505',
-    services: ['sales'],
+    name: 'Slate Desk Mat XL',
+    description:
+      'Tapis de bureau en cuir vegan microtexturé, base antidérapante et découpe pour chargeur sans fil.',
+    price: '119 DT',
+    category: 'organisation',
+    highlights: ['Imperméable', 'Bords cousus main', 'Coloris graphite'],
   },
   {
     id: 6,
-    name: 'Volkswagen Gabès',
-    address: 'Route de Médenine, Zone Commerciale El Hamma',
-    city: 'Gabès',
-    postalCode: '6000',
-    phone: '+216 75 333 666',
-    services: ['after-sales', 'parts'],
+    name: 'Pulse Audio Kit',
+    description:
+      'Pack micro à réduction de bruit et enceinte conférence 360° pour réunions hybrides.',
+    price: '459 DT',
+    category: 'tech',
+    highlights: ['Beamforming', 'Autonomie 12 h', 'Compatibilité Teams/Zoom'],
+  },
+  {
+    id: 7,
+    name: 'ErgoWave Foot Rest',
+    description:
+      'Repose-pieds ergonomique à mémoire de forme avec inclinaison ajustable en trois positions.',
+    price: '89 DT',
+    category: 'ergonomie',
+    highlights: ['Mousse haute densité', 'Housse lavable', 'Surface antidérapante'],
+  },
+  {
+    id: 8,
+    name: 'Arc Planner Dock',
+    description:
+      'Organisateur magnétique pour carnets, stylos et accessoires connectés avec charge rapide 15W.',
+    price: '159 DT',
+    category: 'organisation',
+    highlights: ['Modules repositionnables', 'Charge sans fil', 'Bois certifié FSC'],
   },
 ];
 
-const serviceLabels = {
-  sales: 'Vente & livraison',
-  'after-sales': 'Après-vente & entretien',
-  parts: 'Pièces & accessoires',
+const categoryLabels = {
+  ergonomie: 'Ergonomie & confort',
+  organisation: 'Organisation & rangement',
+  luminaire: 'Éclairage & ambiance',
+  tech: 'Tech & connectivité',
 };
 
-const form = document.querySelector('#locator-form');
-const queryInput = document.querySelector('#locator-query');
-const serviceSelect = document.querySelector('#locator-service');
-const resultsContainer = document.querySelector('#dealer-results');
+const form = document.querySelector('#catalog-form');
+const queryInput = document.querySelector('#catalog-query');
+const categorySelect = document.querySelector('#catalog-category');
+const resultsContainer = document.querySelector('#product-results');
 
 function normalise(value) {
   return value
@@ -74,28 +93,27 @@ function normalise(value) {
     .toLowerCase();
 }
 
-function createDealerCard(dealer) {
+function createProductCard(product) {
   const card = document.createElement('article');
-  card.className = 'dealer-card';
+  card.className = 'product-card';
   card.innerHTML = `
-    <div class="dealer-card__header">
-      <h3 class="dealer-card__title">${dealer.name}</h3>
-      <p class="dealer-card__address">${dealer.address}<br />${dealer.postalCode} ${dealer.city}</p>
+    <div class="product-card__header">
+      <h3 class="product-card__title">${product.name}</h3>
+      <p class="product-card__price">${product.price}</p>
     </div>
-    <ul class="dealer-card__services">
-      ${dealer.services
-        .map((service) => `<li>${serviceLabels[service] ?? service}</li>`)
-        .join('')}
+    <p class="product-card__description">${product.description}</p>
+    <ul class="product-card__highlights">
+      ${product.highlights.map((highlight) => `<li>${highlight}</li>`).join('')}
     </ul>
-    <div class="dealer-card__cta">
-      <a class="button button--ghost" href="tel:${dealer.phone.replace(/\s+/g, '')}">Appeler</a>
+    <div class="product-card__cta">
+      <button class="button button--ghost" type="button">Ajouter au panier</button>
     </div>
   `;
   return card;
 }
 
-function renderDealers(list, options = {}) {
-  const { query = '', service = '' } = options;
+function renderProducts(list, options = {}) {
+  const { query = '', category = '' } = options;
 
   resultsContainer.innerHTML = '';
 
@@ -103,7 +121,7 @@ function renderDealers(list, options = {}) {
     const emptyMessage = document.createElement('p');
     emptyMessage.className = 'locator__placeholder';
     emptyMessage.textContent =
-      "Aucune concession ne correspond à votre recherche. Essayez un autre code postal ou élargissez le type de service.";
+      "Aucun produit ne correspond à votre recherche. Tentez un autre mot-clé ou explorez une catégorie voisine.";
     resultsContainer.appendChild(emptyMessage);
     return;
   }
@@ -112,45 +130,45 @@ function renderDealers(list, options = {}) {
   summary.className = 'locator__summary';
 
   if (query) {
-    summary.textContent = `${list.length} concession${list.length > 1 ? 's' : ''} trouvée${
-      list.length > 1 ? 's' : ''
-    } pour "${query}"${service ? ` – ${serviceLabels[service]}` : ''}.`;
-  } else if (service) {
-    summary.textContent = `${list.length} concession${list.length > 1 ? 's' : ''} proposant ${
-      serviceLabels[service] ?? 'ce service'
+    summary.textContent = `${list.length} produit${list.length > 1 ? 's' : ''} correspondant à "${query}"${
+      category ? ` – ${categoryLabels[category]}` : ''
+    }.`;
+  } else if (category) {
+    summary.textContent = `${list.length} produit${list.length > 1 ? 's' : ''} dans ${
+      categoryLabels[category] ?? 'cette catégorie'
     }.`;
   } else {
-    summary.textContent = 'Concessions recommandées près de chez vous.';
+    summary.textContent = 'Produits mis en avant pour votre bureau.';
   }
 
   resultsContainer.appendChild(summary);
 
-  list.forEach((dealer) => {
-    resultsContainer.appendChild(createDealerCard(dealer));
+  list.forEach((product) => {
+    resultsContainer.appendChild(createProductCard(product));
   });
 }
 
-function filterDealers(query, service) {
+function filterProducts(query, category) {
   const trimmedQuery = query.trim();
 
-  if (!trimmedQuery && !service) {
-    return dealers.slice(0, 3);
+  if (!trimmedQuery && !category) {
+    return products.slice(0, 6);
   }
 
   const normalisedQuery = normalise(trimmedQuery);
 
-  return dealers.filter((dealer) => {
-    const matchesService = service ? dealer.services.includes(service) : true;
+  return products.filter((product) => {
+    const matchesCategory = category ? product.category === category : true;
 
     if (!trimmedQuery) {
-      return matchesService;
+      return matchesCategory;
     }
 
-    const candidate = [dealer.name, dealer.city, dealer.postalCode, dealer.address]
+    const candidate = [product.name, product.description, ...(product.highlights ?? []), categoryLabels[product.category]]
       .map((value) => normalise(value))
       .join(' ');
 
-    return matchesService && candidate.includes(normalisedQuery);
+    return matchesCategory && candidate.includes(normalisedQuery);
   });
 }
 
@@ -158,10 +176,10 @@ function handleSearch(event) {
   event?.preventDefault();
 
   const query = queryInput.value;
-  const service = serviceSelect.value;
-  const matchingDealers = filterDealers(query, service);
+  const category = categorySelect.value;
+  const matchingProducts = filterProducts(query, category);
 
-  renderDealers(matchingDealers, { query, service });
+  renderProducts(matchingProducts, { query, category });
 }
 
 form?.addEventListener('submit', handleSearch);
@@ -170,10 +188,10 @@ queryInput?.addEventListener('input', () => {
     handleSearch();
   }
 });
-serviceSelect?.addEventListener('change', handleSearch);
+categorySelect?.addEventListener('change', handleSearch);
 
 if (resultsContainer) {
-  renderDealers(dealers.slice(0, 3));
+  renderProducts(products.slice(0, 6));
 }
 
 const siteHeader = document.querySelector('[data-header]');
